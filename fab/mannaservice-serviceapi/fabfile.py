@@ -15,18 +15,17 @@ from fabric.api import env, task, roles
 from web import SpringBootServer
 
 env.roledefs = {
-    'qa': ['deploy@10.1.0.48'],
-    'live': ['deploy@114.215.128.165','deploy@115.28.40.95'],
-    'liveHangzhou':['deploy@172.16.94.9','deploy@172.16.94.24'],
+    'qa': ['root@101.200.121.176'],
+    'live': ['root@101.200.121.176'],
+   
 }
 
-project_name = 'orderservice-serviceapi';
-project_owner = 'orderservice-serviceapi';
-project_home = '/home/git51/fenqifu-orderservice/orderservice-serviceapi/';
+project_name = 'mannaservice-serviceapi';
+project_owner = 'mannaservice-serviceapi';
+project_home = '/home/github/weishengming-mannaservice/mannaservice-serviceapi/';
 
 qa = SpringBootServer(project_name, project_home, project_owner, 'qa');
 live = SpringBootServer(project_name, project_home, project_owner, 'live');
-liveHangzhou = SpringBootServer(project_name, project_home, project_owner, 'liveHangzhou');
 
 @task
 @roles('live')
@@ -37,16 +36,7 @@ def deploy_live():
 @roles('live')
 def rollback_live():
     live.rollback();
-    
-@task
-@roles('liveHangzhou')
-def deploy_liveHangzhou():
-    liveHangzhou.deploy();
 
-@task
-@roles('liveHangzhou')
-def rollback_liveHangzhou():
-    liveHangzhou.rollback();
 
 @task
 @roles('qa')
