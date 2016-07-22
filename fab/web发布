@@ -1,0 +1,80 @@
+pc
+	cd /home/git51/www.99fenqi.com
+	svn info，确认自己在哪个分支上
+	svn up更新
+	打包： cd /home/git51  && zip -r www.99fenqi.com.zip www.99fenqi.com/*			＃每次发布都打新包
+	cd /home/git51/fenqifu-ops/fab/www.99fenqi.com
+	查看发布 fab -l
+	fab deploy_liveHangzhou
+	rm -f /home/git51/www.99fenqi.com.zip 											#删除，或者下次打包删除
+
+geinihua
+	cd /home/git51/web-geinihua-h5
+	git branch 确定自己在哪个分支上
+	git pull 更新
+	打包 cd /home/git51  && zip -r web-geinihua-h5.zip web-geinihua-h5/* 
+	cd /home/git51/fenqifu-ops/fab/web-geinihua-h5
+	查看发布 fab -l
+	fab deploy_liveHangzhou
+	rm -f /home/git51/web-geinihua-h5.zip 											#删除，或者下次打包删除
+	
+h5
+	cd /home/git51/m.99fenqi.com
+	svn info，确认自己在哪个分支上
+	svn up更新
+	打包： cd /home/git51  && zip -r m.99fenqi.com.zip m.99fenqi.com/*				＃每次发布都打新包
+	cd /home/git51/fenqifu-ops/fab/m.99fenqi.com
+	查看发布 fab -l
+	fab deploy_liveHangzhou
+	rm -f /home/git51/m.99fenqi.com.zip 											#删除，或者下次打包删除
+
+
+tongji
+	
+
+	ssh root@10.1.0.13  密码 99fenqi
+
+	cd /home/git51/web-tongji-99fenqi
+	git pull
+	rm -rf vendor/*
+	rm -rf doc/*
+	mkdir doc/
+	composer update --lock
+	composer install
+	composer dump-autoload --optimize
+	./vendor/bin/swagger Application -o doc/swagger.json
+	cd /home/git51
+	rm *.zip
+	zip -r web-tongji-99fenqi.zip web-tongji-99fenqi/*
+	cd /home/git51/fenqifu-ops/fab/web-tongji-99fenqi
+	fab -l
+	fab deploy_liveHangzhou
+
+
+	测试：http://tongji.99fenqi.com.cn/home/cpa/check?idfa=2B4ADAFE-55CC-46F2-9EFA-0C85C7CECDF8&appid=1033546480
+	
+
+	swagger地址
+		http://tongji.99fenqi.com.cn/swagger-ui/index.html
+		http://localhost:8888/swagger-ui/index.html
+
+	hessian
+		
+		
+	restful
+		http://document.thinkphp.cn/manual_3_2.html#restful
+
+
+绑定hosts
+	172.16.94.11    www.99fenqi.com
+	172.16.94.11    m.99fenqi.com
+	172.16.94.11    m.geinihua.com
+
+
+查看服务器打印的日志
+	10.1.0.13
+	ssh	deploy@172.16.94.14          可以登录服务器看日志
+	如
+	cd /data/www/www.99fenqi.com/webroot/Application/Runtime/
+	sudo tail -f logs.txt
+

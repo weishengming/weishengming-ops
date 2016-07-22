@@ -1,0 +1,71 @@
+## 99fenqi New Open Api Service
+upstream openapi.80.1 {
+      server 172.16.94.9:8105;
+      server 172.16.94.24:8105;
+}
+upstream openapi.80.2 {
+      server 172.16.94.9:8888;
+      server 172.16.94.24:8888;
+}
+upstream openapi.80.3 {
+      server 172.16.94.9:8888;
+}
+
+## /html目录转到 h5 pc的机器上
+upstream openapi.80.4 {
+	server 172.16.94.14:8888;
+}
+
+server{
+    listen 80;
+    server_name api2.fenqifu.com.cn;
+
+    location /html/ {
+        proxy_pass http://openapi.80.4;
+		proxy_set_header host $host;
+		proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+		proxy_set_header X-Real-IP  $remote_addr;
+    }
+
+    location /api/api-docs {
+        allow 218.241.82.138;
+        deny  all;
+        proxy_pass http://openapi.80.1;
+        proxy_set_header host $host;
+        proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-IP  $remote_addr;
+	}
+
+	location /api/ {
+	    proxy_pass http://openapi.80.1;
+	    proxy_set_header host $host;
+	    proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+	    proxy_set_header X-Real-IP  $remote_addr;
+	}
+
+    location /order2/v2/api-docs {
+        allow 218.241.82.138;
+        deny  all;
+        proxy_pass http://openapi.80.2;
+        proxy_set_header host $host;
+        proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-IP  $remote_addr;
+    }
+
+    location /order2/user/uploadContacts {
+        proxy_pass http://openapi.80.3;
+        proxy_set_header host $host;
+        proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-IP  $remote_addr;
+    }
+
+    location /order2/ {
+        proxy_pass http://openapi.80.2;
+        proxy_set_header host $host;
+        proxy_set_header X-forwarded-for $proxy_add_x_forwarded_for;
+        proxy_set_header X-Real-IP  $remote_addr;
+    }
+}
+
+
+
