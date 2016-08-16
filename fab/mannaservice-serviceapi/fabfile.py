@@ -1,7 +1,7 @@
 #coding=utf-8
 
 """
-auto deploying java web application for orderservice-serviceapi
+auto deploying java web application for mannaservice-serviceapi
 command examples:
 fab deploy_live
 fab rollback_beta
