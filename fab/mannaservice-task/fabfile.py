@@ -15,7 +15,7 @@ from fabric.api import env, task, roles
 from web import SpringBootServer
 
 env.roledefs = {
-    'qa': ['deploy@10.1.0.48'],
+    'qa': ['root@10.1.0.48'],
     'live': ['deploy@115.28.40.95'],
 }
 
