@@ -22,7 +22,7 @@ env.roledefs = {
 
 project_name = 'mannaservice-serviceapi';
 project_owner = 'mannaservice-serviceapi';
-project_home = '/home/github/weishengming-mannaservice/mannaservice-serviceapi/';
+project_home = '/home/github/weishengming-manna/mannaservice-serviceapi/';
 
 qa = SpringBootServer(project_name, project_home, project_owner, 'qa');
 live = SpringBootServer(project_name, project_home, project_owner, 'live');
