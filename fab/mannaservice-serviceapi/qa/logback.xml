@@ -3,7 +3,7 @@
 
     <property name="LOG_HOME" value="/data/logs/tomcat/mannaservice-serviceapi" />
     
-    <!-- Simple file output data/logs/tomcat/orderservice-serviceapi -->
+    <!-- Simple file output data/logs/tomcat/mannaservice-serviceapi -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- encoder defaults to ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
         <encoder>
@@ -64,23 +64,22 @@
         </encoder>
     </appender>
 
-    <logger name="org.springframework" level="INFO" additivity="false">  
+    
+
+    <logger name="org.springframework" level="INFO">  
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger name="springfox.documentation" level="INFO" additivity="false">  
+    <logger name="springfox.documentation" level="INFO">  
         <appender-ref ref="STDOUT"/>  
     </logger>
-    <logger name="org.apache" level="INFO" additivity="false">  
+    <logger name="org.apache" level="INFO">  
         <appender-ref ref="STDOUT"/>  
     </logger>
-    <logger name="com.fenqifu" level="INFO" additivity="false">  
+    <logger name="com.weishengming" level="INFO" additivity="false">  
         <appender-ref ref="FILE"/>
-    </logger>
-    <logger name="com.fenqifu" level="ERROR">  
         <appender-ref ref="FILE_ERROR"/>
     </logger>
-   <!--  <root level="info">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
-        <appender-ref ref="FILE" />
-    </root> -->
+    </root>
 </configuration>

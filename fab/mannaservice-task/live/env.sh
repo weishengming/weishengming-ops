@@ -1,4 +1,4 @@
 #!/bin/bash
 
-PROJECT_NAME=orderservice-task
-SERVICE_USER=orderservice-task
+PROJECT_NAME=mannaservice-task
+SERVICE_USER=mannaservice-task

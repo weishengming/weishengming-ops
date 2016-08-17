@@ -1,7 +1,7 @@
 <!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
 <configuration scan="true" scanPeriod="10 seconds">
 
-    <property name="LOG_HOME" value="/data/logs/tomcat/orderservice-task" />
+    <property name="LOG_HOME" value="/data/logs/tomcat/mannaservice-task" />
 
     <!-- Simple file output -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">

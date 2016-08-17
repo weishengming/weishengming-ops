@@ -1,9 +1,9 @@
 <!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
 <configuration scan="true" scanPeriod="10 seconds">
 
-    <property name="LOG_HOME" value="/data/logs/tomcat/orderservice-serviceapi" />
+    <property name="LOG_HOME" value="/data/logs/tomcat/mannaservice-serviceapi" />
     
-    <!-- Simple file output data/logs/tomcat/orderservice-serviceapi -->
+    <!-- Simple file output data/logs/tomcat/mannaservice-serviceapi -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- encoder defaults to ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
         <encoder>
@@ -73,10 +73,10 @@
     <logger name="org.apache" level="INFO" additivity="false">  
         <appender-ref ref="STDOUT"/>  
     </logger>
-    <logger name="com.fenqifu" level="INFO" additivity="false">  
+    <logger name="com.weishengming" level="INFO" additivity="false">  
         <appender-ref ref="FILE"/>
     </logger>
-    <logger name="com.fenqifu" level="ERROR">  
+    <logger name="com.weishengming" level="ERROR">  
         <appender-ref ref="FILE_ERROR"/>
     </logger>
    <!--  <root level="info">

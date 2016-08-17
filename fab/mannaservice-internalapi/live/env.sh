@@ -1,4 +1,4 @@
 #!/bin/bash
 
-PROJECT_NAME=orderservice-internalapi
-SERVICE_USER=orderservice-internalapi
+PROJECT_NAME=mannaservice-internalapi
+SERVICE_USER=mannaservice-internalapi
