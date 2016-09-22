@@ -1,9 +1,9 @@
 <!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
 <configuration scan="true" scanPeriod="10 seconds">
 
-    <property name="LOG_HOME" value="/data/logs/tomcat/mannaservice-internalapi" />
+    <property name="LOG_HOME" value="/data/logs/tomcat/clientservice-mui" />
     
-    <!-- Simple file output data/logs/tomcat/mannaservice-serviceapi -->
+    <!-- Simple file output data/logs/tomcat/clientservice-mui -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!-- encoder defaults to ch.qos.logback.classic.encoder.PatternLayoutEncoder -->
         <encoder>
@@ -12,7 +12,6 @@
             </pattern>
             <charset>UTF-8</charset> <!-- 此处设置字符集 -->
         </encoder>
-
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily 配置日志所生成的目录以及生成文件名的规则 -->
             <fileNamePattern>${LOG_HOME}/log-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
@@ -64,7 +63,7 @@
             </pattern>
         </encoder>
     </appender>
-    
+
     <logger name="org.springframework" level="INFO" additivity="false">  
         <appender-ref ref="STDOUT"/>
     </logger>
@@ -74,10 +73,10 @@
     <logger name="org.apache" level="INFO" additivity="false">  
         <appender-ref ref="STDOUT"/>  
     </logger>
-    <logger name="com.fenqifu" level="INFO" additivity="false">  
+    <logger name="com.weishengming" level="INFO" additivity="false">  
         <appender-ref ref="FILE"/>
     </logger>
-    <logger name="com.fenqifu" level="ERROR">  
+    <logger name="com.weishengming" level="ERROR">  
         <appender-ref ref="FILE_ERROR"/>
     </logger>
    <!--  <root level="info">

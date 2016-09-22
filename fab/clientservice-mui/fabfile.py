@@ -1,7 +1,7 @@
 #coding=utf-8
 
 """
-auto deploying java web application for mannaservice-internalapi
+auto deploying java web application for clientservice-mui
 command examples:
 fab deploy_live
 fab rollback_beta
@@ -15,17 +15,17 @@ from fabric.api import env, task, roles
 from web import SpringBootServer
 
 env.roledefs = {
-    'qa': ['deploy@10.1.0.48'],
-    'live': ['deploy@101.200.121.176'],
+    'qa': ['root@101.200.121.176'],
+    'live': ['root@101.200.121.176'],
+   
 }
 
-project_name = 'mannaservice-internalapi';
-project_owner = 'mannaservice-internalapi';
-project_home = '/home/github/weishengming-mannaservice/mannaservice-internalapi/';
+project_name = 'clientservice-mui';
+project_owner = 'clientservice-mui';
+project_home = '/home/github/weishengming-client/clientservice-mui/';
 
 qa = SpringBootServer(project_name, project_home, project_owner, 'qa');
 live = SpringBootServer(project_name, project_home, project_owner, 'live');
-
 
 @task
 @roles('live')
@@ -36,6 +36,7 @@ def deploy_live():
 @roles('live')
 def rollback_live():
     live.rollback();
+
 
 @task
 @roles('qa')
