@@ -23,7 +23,7 @@ LOG="/data/logs/tomcat/$PROJECT_NAME/$PROJECT_NAME.log"
 LOCK="/data/logs/tomcat/$PROJECT_NAME/$PROJECT_NAME.lock"
 CONFIG="/data/config/$PROJECT_NAME"
 # java executable for spring boot app, change if you have multiple jdks installed
-SPRINGBOOTAPP_JAVA=$JAVA_HOME/jre/bin/java
+SPRINGBOOTAPP_JAVA=$JAVA_HOME/bin/java
 
 RETVAL=0
 
