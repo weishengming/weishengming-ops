@@ -57,7 +57,7 @@ class SpringBootServer(object):
         with lcd(self.projectHome):
             put('target/' + self.projectName + '.jar', self.remoteProjectDir, use_sudo=True);
         recur_sync(self.env + '/env.sh', self.remoteProjectDir, 2, mode=0400, use_sudo=True);
-        recur_sync('../spring-boot.sh', self.remoteProjectDir, mode=0777, use_sudo=True);
+        recur_sync('../spring-boot.sh', self.remoteProjectDir, mode=0700, use_sudo=True);
         put(self.env + '/application.properties', self.remoteConfigDir, mode=0400, use_sudo=True);
         put(self.env + '/logback.xml', self.remoteConfigDir, mode=0400, use_sudo=True);
         sudo(('chown -R %s:%s %s; chown -R %s:%s %s' % (self.projectOwner, self.projectOwner, self.remoteProjectDir, self.projectOwner, self.projectOwner, self.remoteConfigDir)));
