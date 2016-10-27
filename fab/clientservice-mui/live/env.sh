@@ -1,4 +1,4 @@
 #!/bin/bash
 
-PROJECT_NAME=mannaservice-mui
-SERVICE_USER=mannaservice-mui
+PROJECT_NAME=clientservice-mui
+SERVICE_USER=clientservice-mui
